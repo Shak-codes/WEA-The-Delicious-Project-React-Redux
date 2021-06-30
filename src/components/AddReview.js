@@ -91,6 +91,12 @@ const AddReview = (props) => {
         } else notValid = true;
     }
 
+    // Function for alerting a user their review has been successfully added
+    const alertUser = () => {
+        handleAddReview();
+        alert('Review submitted!');
+    }
+
     return (
         <div>
             <select className="add-rating" name="rating" value={rating} onChange={handleChangeRating}>
@@ -102,7 +108,7 @@ const AddReview = (props) => {
                 <option value="5">5</option>
             </select>
             <textarea maxLength="400" cols="80" rows="6" name="review-description" className="add-review-description" type='text' value={reviewDescription} placeholder="Your review here" onChange={handleChangeReview} />
-            <button disabled={notValid} onClick={handleAddReview}>Submit Review</button>
+            <button disabled={notValid} onClick={alertUser}>Submit Review</button>
         </div>
     );
 };

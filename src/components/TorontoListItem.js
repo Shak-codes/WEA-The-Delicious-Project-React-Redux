@@ -7,8 +7,13 @@ let totalReviews = 0;
 
 
 const TorontoListItem = ({ restaurant }) => {
+    // Variable for length of review array
     let len = 0;
+
+    // Variable for the sum of review ratings
     let total_rating = 0;
+
+    // Variable for the index of the current review
     let current_idx = 1;
     const GQL_API = `https://wea-group33-graphql.herokuapp.com/`;
     const GQL_QUERY = `
@@ -49,6 +54,7 @@ const TorontoListItem = ({ restaurant }) => {
     // Variable to store review user
     const [reviewUser, setReviewUser] = useState(null);
 
+
     // Function to get total reviews
     const reviewTotal = () => {
         const variables = { id: restaurant.id };
@@ -71,8 +77,11 @@ const TorontoListItem = ({ restaurant }) => {
 
     // Function to load review properties
     const handleLoadReviews = () => {
+
+        // Reset total_rating to 0 to recount the total rating
         total_rating = 0;
-        // Store id variable
+
+        // Store id variables
         const variables = { id: restaurant.id };
 
         // Setting review text
@@ -88,28 +97,34 @@ const TorontoListItem = ({ restaurant }) => {
         })
         .then((response) => response.json())
         .then((result) => {
+
+            // Set variable data to the first review in the array
             setReviewList(result.data.restaurant.reviews[0].description);
             setRatingList(result.data.restaurant.reviews[0].rating);
             setReviewUser(result.data.restaurant.reviews[0].user);
+
+            // Set review dta to the entire array of reviews
             reviewData = result.data.restaurant.reviews;
-            console.log(reviewData);
+
+            // Set the length of the reviewData array
             len = reviewData.length;
+
+            // Set the total reviews to the value of len
             totalReviews = len;
+
+            // Update the sum of all ratings
             for (let i = 0; i < len; i += 1) {
                 total_rating += reviewData[i].rating;
-                //console.log(reviewData[i].rating);
             }
-            //console.log(overall_rating);
-            //console.log(overall_rating);
+
+            // Set variable for sum of all ratings
             setOverallRating((total_rating / len).toFixed(1));
         });
-        console.log(total_rating);
-        // Setting delete button
+
+        // Set buttons for hiding a review, going to the next review, and showing the add review textbox
         setDeleteButton(<button className="hide-button" onClick={handleUnloadReviews}>Hide</button>);
         setNextReview(<button className="next-review-button" onClick={handleNextReview}>Next</button>);
         setAddReviewThreshold(<button className="add-review-threshold" onClick={showAddReviewContent}>Add Review</button>);
-        //<AddReview onAddReview={(description) => handleAddReview(description, rating)}/>
-        //<button className="add-review-threshold">Add Review</button>
     };
 
     // Function to unload review properties
@@ -122,20 +137,31 @@ const TorontoListItem = ({ restaurant }) => {
         setAddReviewButton();
     };
 
+    // Function to pull the data for the next review
     const handleNextReview = () => {
         if (current_idx === len) {
             current_idx = 0;
         }
+
+        // Setting the data of the next review into variables
         setReviewList(reviewData[current_idx].description);
         setRatingList(reviewData[current_idx].rating);
         setReviewUser(reviewData[current_idx].user);
         current_idx += 1;
     };
 
+    // Function to show parameters for adding a review
     const showAddReviewContent = () => {
-        setAddReviewButton(<AddReview onClick={add} onAddReview={(description, rating) => handleAddReview(description, rating)}/>);
+        setAddReviewButton(<AddReview onClick={add} onAddReview={addReview}/>);
     }
 
+    // Function for triggering the addition of a review, and to hide the add review content afterwards
+    const addReview = (description, rating) => {
+        hideRev();
+        handleAddReview(description, rating);
+    }
+
+    // Function for adding a review
     const handleAddReview = (description, rating) => {
         const newReview = {id: len + 1, user: localStorage.username, description: description, rating: parseInt(rating) };
         const newReviewList = [...reviewData, newReview];
@@ -163,16 +189,27 @@ const TorontoListItem = ({ restaurant }) => {
         .then((result) => console.log(result));
     };
 
+
     reviewTotal();
+
+    // Setting the function increment for the redux component
     const { increment } = counterSlice.actions;
-    let count = useSelector((state) => state.counter.value + totalReviews)
+
+    // Setting the value of count for the redux component
+    let count = useSelector((state) => state.counter.value + totalReviews);
+
+    // Setting dispatch for the redux component
     const dispatch = useDispatch()
-  
-    function combine() {
-      test();
-    }
+
+    // Setting the function add for the redux component
     const add = () => dispatch(increment());
 
+    // Setting the function to hide add review details
+    const hideRev = () => {
+        setAddReviewButton();
+    }
+
+    // Returned content
     return ( 
         <div className="restaurant-data">
             <div className="general-data">

@@ -62,7 +62,7 @@ const AddReview = (props) => {
         let newReviewDescription = '';
         let nonBlank = 0;
         for (let i = 0; i < review.length; i++) {
-            if (nonBlank === 60) {
+            if (nonBlank === 30) {
                 newReviewDescription += ' ';
                 nonBlank = 0;
             } else if (review.charAt(i) !== ' ') {

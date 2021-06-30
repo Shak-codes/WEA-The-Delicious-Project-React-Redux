@@ -1,0 +1,290 @@
+/* body CSS */
+body {
+    background: url("../../assets/nick-karvounis-Ciqxn7FE4vE-unsplash.jpg") #000814d0;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+/* NAVBAR CSS */
+
+/* Navbar */
+nav {
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2vh;
+    padding-bottom: 2.5vh;
+    border-bottom: 2px dotted white;
+}
+
+/* Navbar title */
+#title-review {
+    color: whitesmoke;
+    padding-right: 3vw;
+    font-size: 2vw;
+}
+
+/* Navbar Location links */
+.location-link {
+    font-style: italic;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #326272;
+    font-weight: bold;
+    color: white;
+    border: none;
+    font-size: 1.5vw;
+    padding: 1.5vh 6vw 1.5vh 6vw;
+    transition-duration: 0.4s;
+}
+
+/* Location links on hover */
+.location-link:hover { background-color: #99c1de; }
+
+/* Navbar login button */
+.login-button {
+    border: none;
+    align-self: center;
+    background-color: #99c1de;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    resize: vertical;
+    font-size: 1.5vh;
+    transition: 0.4s
+}
+
+/* Login button on hover */
+.login-button:hover {
+    background-color: #326272;
+}
+
+/* Login Input */
+.login-input {
+    font-size: 1.5vh;
+    align-self: center;
+    resize: horizontal;
+    border: none;
+}
+
+/* RESTAURANT NAVBAR CSS */
+
+/* Restaurant title text */
+h3 {
+    text-decoration: none;
+}
+
+/* Restaurant list container */
+.restaurant-list {
+    padding-left: 1vw;
+}
+
+/* Restaurant title text */
+#restaurant-header {
+    font-size: 2vw;
+    color: #ffc100;
+    margin-top: 1vh;
+    margin-bottom: 0;
+}
+
+/* Restaurant Link Container */
+#restaurant-links {
+    border-right: 4px solid white;
+    width: 15vw;
+    display: grid;
+    grid-template-rows: auto;
+    text-decoration: none;
+}
+
+/* Individual restaurant link */
+.restaurant-link {
+    vertical-align: middle;
+    margin: 0 auto;
+    padding: 2vh 0;
+    font-size: 1.5vw;
+    color: white;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.restaurant-link:hover {
+    color: black;
+    background-color: #ffeaae;
+    border-radius: 1px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* REVIEW CSS */
+
+/* hide button CSS */
+.hide-button {
+    font-weight: bold;
+    background-color: #326272;
+    color: white;
+    border: none;
+    padding: 1vh 2vw 1vh 2vw;
+    margin-right: 5px;
+    margin-left: 1vw;
+    transition-duration: 0.4s;
+}
+  
+/* Hide button CSS on hover */
+.hide-button:hover {
+    background-color: #5c9ead;
+}
+
+/* Button for loading next review CSS */
+.next-review-button {
+    font-weight: bold;
+    background-color: #326272;
+    color: white;
+    border: none;
+    padding: 1vh 2vw 1vh 2vw;
+    margin-right: 5px;
+    transition-duration: 0.4s;
+}
+  
+/* Button for loading next review: on hover CSS */
+.next-review-button:hover {
+    background-color: #5c9ead;
+}
+
+/* Show submit review button CSS */
+.add-review-threshold {
+    background-color: #326272;
+    color: white;
+    border: none;
+    padding: 1vh 2vw 1vh 2vw;
+    margin-right: 5px;
+    transition-duration: 0.4s;
+}
+
+/* Show submit review button: on hover CSS */
+.add-review-threshold:hover {
+    background-color: #adc178;
+}
+
+/* Restaurant header CSS */
+
+/* Restaurant Info */
+#container {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    width: 100vw;
+    height: 80vh;
+}
+
+/* General restaurant data CSS */
+.general-data {
+    text-align: center;
+    color: white;
+    padding-left: 1vw;
+}
+
+/* Restaurant name in general restaurant data CSS */
+#nested-restaurant-name {
+    color: #ffc100;
+    font-size: 3vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Restaurant description CSS */
+#restaurant-description {
+    color: #ffeaae;
+    font-weight: normal;
+    line-height: 3vh;
+    font-size: 1.5vw;
+}
+
+/* Restaurant genre CSS */
+#genre-name {
+    color: white;
+}
+
+/* Restaurant hours CSS */
+#restaurant-hours {
+    color:white;
+    font-size: 1.3vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    bottom: 0;
+}
+
+/* Load Reviews Button CSS */
+#load-reviews {
+    font-weight: bold;
+    background-color: #326272;
+    color: white;
+    font-size: 1vw;
+    margin-top: 0.5vh;
+    padding-top: 0.5vh;
+    padding-left: 7.5vw;
+    padding-right: 7.5vw;
+    padding-bottom: 0.5vh;
+    border: none;
+    transition: 0.4s;
+}
+
+/* Load reviews button: on hover CSS */
+#load-reviews:hover {
+    background-color: #5c9ead;
+}
+
+/* Review CSS */
+.review-description {
+    color: white;
+    text-align: center;
+}
+
+/* Overall restaurant rating CSS */
+.overall-rating {
+    margin-top: 0.5vh;
+    font-size: 1.5vw;
+}
+
+/* Review user CSS */
+.review-user {
+    color: #ffc100;
+}
+
+/* Individual review rating CSS */
+.individual-rating {
+    font-size: 1.3vw;
+}
+
+/* IDK WHAT THIS IS PLEASE FIND OUT */
+.restaurant-data {
+    padding-left: 20vw;
+    padding-right: 20vw;
+}
+
+/* Add a rating CSS */
+.add-rating {
+    text-align: center;
+    width: 40vw;
+    border: none;
+    margin-bottom: 2vh;
+}
+
+/* Add review description CSS */
+.add-review-description {
+    width: 39.8vw;
+    height: 10vh;
+    border: none;
+}
+
+/* Welcome message CSS */
+.welcome-message {
+    color: white;
+    font-size: 48px;
+    text-align: center;
+}

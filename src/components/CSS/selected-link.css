@@ -1,0 +1,21 @@
+/* selected location link CSS */
+.selected-link {
+    background-color: #5c9ead;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-right: 1vw;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    border: none;
+    font-size: 1.5vw;
+    padding: 1.5vh 6vw 1.5vh 6vw;
+}
+
+.location-link span {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}

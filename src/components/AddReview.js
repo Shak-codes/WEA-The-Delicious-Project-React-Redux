@@ -72,11 +72,13 @@ const AddReview = (props) => {
             if (nonBlank === 60) {
                 newReviewDescription += ' ';
                 nonBlank = 0;
-            }
-            if (review.charAt(i) !== ' ') {
+            } else if (review.charAt(i) !== ' ') {
                 newReviewDescription += review.charAt(i);
                 nonBlank += 1;
-            } else nonBlank = 0;
+            } else {
+                newReviewDescription += review.charAt(i);
+                nonBlank = 0;
+            }
             console.log(i);
             console.log(review.charAt(i));
         }

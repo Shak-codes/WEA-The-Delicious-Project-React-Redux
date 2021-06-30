@@ -6,7 +6,7 @@ let reviewData = null;
 let totalReviews = 0;
 
 
-const TorontoListItem = ({ restaurant }) => {
+const RestaurantListItem = ({ restaurant }) => {
     // Variable for length of review array
     let len = 0;
 
@@ -257,5 +257,5 @@ const counterSlice = createSlice({
     },
 })
 
-export default TorontoListItem;
+export default RestaurantListItem;
 export const counterReducer = counterSlice.reducer;

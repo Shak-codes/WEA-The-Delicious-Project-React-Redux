@@ -19,16 +19,11 @@ const AddReview = (props) => {
     // Variable for raw review description
     const [reviewDescription, setReviewDescription] = useState('');
 
-    // Variable for edited review description
-    const [editedReviewDescription, setEditedReviewDescription] = useState('');
-
     // Variable for rating
     const [rating, setRating] = useState('');
 
     // Function to process review text
     const handleChangeReview = (event) => {
-        //setReviewDescription(event.target.value);
-        //createValidDescription();
         createValidDescription(event);
         if (event.target.value === '') {
             valid_description = false;
@@ -44,8 +39,6 @@ const AddReview = (props) => {
     // Function for adding review on button click
     const handleAddReview = () => {
         props.onAddReview(reviewDescription, rating);
-        // console.log(editedReviewDescription);
-        // props.onAddReview(editedReviewDescription, rating);
     }
 
     // Function for setting the rating to the input
@@ -82,7 +75,6 @@ const AddReview = (props) => {
             console.log(i);
             console.log(review.charAt(i));
         }
-        //setEditedReviewDescription(newReviewDescription);
         setReviewDescription(newReviewDescription);
     }
 
